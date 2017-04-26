@@ -316,8 +316,8 @@ int access_disabled(const struct su_initiator *from) {
         } else
             memcpy(enabled, "0", 2);
 
-        /* enforce persist.sys.root_access on non-eng builds for apps */
-        if (strcmp("eng", build_type) != 0 &&
+        /* enforce persist.sys.root_access on user builds for apps */
+        if (strcmp("user", build_type) == 0 &&
                 from->uid != AID_SHELL && from->uid != AID_ROOT &&
                 (atoi(enabled) & ANDROID_ROOT_ACCESS_APPS_ONLY) != ANDROID_ROOT_ACCESS_APPS_ONLY ) {
             ALOGE("Apps root access is disabled by system setting - "
