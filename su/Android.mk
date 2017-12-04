@@ -5,8 +5,8 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := su
-LOCAL_MODULE_TAGS := optional
-LOCAL_WHOLE_STATIC_LIBRARIES := libcutils libutils libbinder liblog
+LOCAL_MODULE_TAGS := eng debug optional
+LOCAL_SHARED_LIBRARIES:= libbacktrace libcutils libutils libbinder liblog libvndksupport
 LOCAL_SRC_FILES := su.c daemon.c utils.c pts.c
 LOCAL_SRC_FILES += binder/appops-wrapper.cpp binder/pm-wrapper.c
 LOCAL_CFLAGS += -Werror
